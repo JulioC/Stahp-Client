@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- App identity -->
     <string name="app_name">Stahp!</string>
+    <string name="title_activity_match_details">Stahp! - Partida</string>
+
+    <!-- Testing stuff, TODO: remove -->
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Configuration -->
+    <string name="base_url">http://lambdahq.com:8080/stahp/</string>
+    <string name="generic_server_down">O servidor não respondeu</string>
+    <string name="no_internet">Não foi possível conectar com a internet</string>
+    <string name="generic_error">Ocorreu um erro desconhecido :(</string>
+
+    <!-- General messages -->
+    <string name="guest_name">Visitante</string>
+    <string name="register_title">Bem vindo</string>
+    <string name="register_message">Antes de começar a jogar, você precisa dizer como quer ser chamado</string>
+    <string name="confirm">Pronto!</string>
+    <string name="welcome_message">Olá, %1$s!</string>
+    <string name="error_message">Erro: %1$s</string>
+
+    <string name="action_new">Nova</string>
+    <string-array name="action_list">
+        <item>Minhas Partidas</item>
+        <item>Todas Partidas</item>
+    </string-array>
+
+    <string name="match_start">Iniciar partida</string>
+    <string name="match_join">Juntar-se à partida</string>
+    <string name="match_play">Jogar</string>
+    <string name="match_players">Participantes</string>
+    <string name="created_by">criada por %1$s</string>
 
 </resources>

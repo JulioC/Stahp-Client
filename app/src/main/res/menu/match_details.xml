@@ -1,15 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="br.com.thejcs.stahp.MainActivity" >
-
-   <item android:id="@+id/action_new"
-        android:icon="@drawable/ic_action_new"
-        android:title="@string/action_new"
-        app:showAsAction="ifRoom" />
-
+    tools:context="br.com.thejcs.stahp.MatchDetailsActivity" >
+    
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
-        android:showAsAction="never" />
-
+        android:orderInCategory="100"
+        app:showAsAction="never" />
 </menu>
