@@ -163,7 +163,6 @@ public class StahpAPI {
     protected <T> void addRequest(int method, String url, Class<T> clazz,
                                   Map<String, String> params, Map<String, String> headers,
                                   Listener<T> listener, ErrorListener errorListener) {
-        // TODO: handle the accept header in a better way
         if(headers == null) {
             headers = new HashMap<String, String>();
         }

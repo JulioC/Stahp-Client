@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class URLBuilder {
 
-    // TODO: move to a resource (?)
     private static String BASE_URL = "http://lambdahq.com:8080/stahp/";
 
     public static void setBaseURL(String baseURL) {
