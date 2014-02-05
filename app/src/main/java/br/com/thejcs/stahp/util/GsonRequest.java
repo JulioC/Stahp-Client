@@ -1,4 +1,4 @@
-package br.com.thejcs.stahp.api.toolbox;
+package br.com.thejcs.stahp.util;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;

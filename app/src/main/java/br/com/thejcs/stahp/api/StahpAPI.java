@@ -6,11 +6,15 @@ import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import br.com.thejcs.stahp.api.entity.ChallengeEntity;
+import br.com.thejcs.stahp.api.entity.EntryEntity;
 import br.com.thejcs.stahp.api.entity.MatchEntity;
 import br.com.thejcs.stahp.api.entity.PlayerEntity;
-import br.com.thejcs.stahp.api.toolbox.GsonRequest;
+import br.com.thejcs.stahp.util.GsonRequest;
+import br.com.thejcs.stahp.util.StringUtils;
 
 public class StahpAPI {
 
@@ -105,6 +109,53 @@ public class StahpAPI {
                 null, null, listener, errorListener);
     }
 
+    public void startMatch(String matchId,
+                           Listener<MatchEntity> listener,
+                           ErrorListener errorListener) {
+        URLBuilder urlBuilder = new URLBuilder(authKey);
+        String url = urlBuilder.match(matchId);
+
+        addRequest(
+                Request.Method.POST, url, MatchEntity.class,
+                null, null, listener, errorListener);
+    }
+
+    public void joinMatch(String matchId,
+                          Listener<MatchEntity> listener,
+                          ErrorListener errorListener) {
+        URLBuilder urlBuilder = new URLBuilder(authKey);
+        String url = urlBuilder.match(matchId);
+
+        addRequest(
+                Request.Method.POST, url, MatchEntity.class,
+                null, null, listener, errorListener);
+    }
+
+    public void getChallenges(String matchId,
+                              Listener<ChallengeEntity[]> listener,
+                              ErrorListener errorListener) {
+        URLBuilder urlBuilder = new URLBuilder(authKey);
+        String url = urlBuilder.challenges(matchId);
+
+        addRequest(
+                Request.Method.GET, url, ChallengeEntity[].class,
+                null, null, listener, errorListener);
+    }
+
+    public void sendResult(String matchId, List<String> words,
+                           Listener<EntryEntity> listener,
+                           ErrorListener errorListener) {
+        URLBuilder urlBuilder = new URLBuilder(authKey);
+        String url = urlBuilder.words(matchId);
+
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("words", StringUtils.join(words, ","));
+
+        addRequest(
+                Request.Method.POST, url, EntryEntity.class,
+                params, null, listener, errorListener);
+    }
+
     public void cancelAll() {
         queue.cancelAll(tag);
     }
@@ -125,5 +176,4 @@ public class StahpAPI {
         request.setTag(tag);
         queue.add(request);
     }
-
 }

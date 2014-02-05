@@ -46,12 +46,16 @@ public class URLBuilder {
         return buildURL("matches/all", true);
     }
 
-    public String words(String matchId) {
-        return buildURL("match/" + matchId + "/words", true);
+    public String challenges(String matchId) {
+        return buildURL("matches/" + matchId + "/words", true);
     }
 
-    public String wordsByPlayer(String matchId, String playerId) {
-        return buildURL("match/" + matchId + "/words/" + playerId, true);
+    public String words(String matchId) {
+        return buildURL("matches/" + matchId + "/words", true);
+    }
+
+    public String words(String matchId, String playerId) {
+        return buildURL("matches/" + matchId + "/words/" + playerId, true);
     }
 
     private String buildURL(String path) {

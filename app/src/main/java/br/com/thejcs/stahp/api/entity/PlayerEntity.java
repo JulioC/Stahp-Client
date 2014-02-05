@@ -15,5 +15,4 @@ public class PlayerEntity {
     public String getName() {
         return name;
     }
-
 }

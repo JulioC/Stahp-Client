@@ -6,7 +6,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import br.com.thejcs.stahp.R;
-import br.com.thejcs.stahp.api.toolbox.VolleyErrorHelper;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 

@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="br.com.thejcs.stahp.MainActivity"
+            android:name="br.com.thejcs.stahp.ui.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +21,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.com.thejcs.stahp.MatchDetailsActivity"
+            android:name="br.com.thejcs.stahp.ui.MatchDetailsActivity"
             android:label="@string/title_activity_match_details" >
+        </activity>
+        <activity
+            android:name="br.com.thejcs.stahp.ui.MatchActivity"
+            android:label="@string/title_activity_match" >
         </activity>
     </application>
 

@@ -1,4 +1,4 @@
-package br.com.thejcs.stahp;
+package br.com.thejcs.stahp.ui.fragment;
 
 import android.app.ListFragment;
 import android.content.Intent;
@@ -9,11 +9,12 @@ import com.android.volley.Response;
 
 import java.util.Arrays;
 
+import br.com.thejcs.stahp.StahpApplication;
 import br.com.thejcs.stahp.api.StahpAPI;
 import br.com.thejcs.stahp.api.entity.MatchEntity;
+import br.com.thejcs.stahp.ui.adapter.MatchArrayAdapter;
+import br.com.thejcs.stahp.ui.MatchDetailsActivity;
 import br.com.thejcs.stahp.util.CroutonErrorListener;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class MatchListFragment extends ListFragment {
 

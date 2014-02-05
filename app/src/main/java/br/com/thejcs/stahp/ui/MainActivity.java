@@ -1,4 +1,4 @@
-package br.com.thejcs.stahp;
+package br.com.thejcs.stahp.ui;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -8,7 +8,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -18,9 +17,12 @@ import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import br.com.thejcs.stahp.R;
+import br.com.thejcs.stahp.StahpApplication;
 import br.com.thejcs.stahp.api.StahpAPI;
 import br.com.thejcs.stahp.api.entity.MatchEntity;
 import br.com.thejcs.stahp.api.entity.PlayerEntity;
+import br.com.thejcs.stahp.ui.fragment.MatchListFragment;
 import br.com.thejcs.stahp.util.CroutonErrorListener;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
@@ -30,6 +32,8 @@ public class MainActivity extends ActionBarActivity {
     private MatchListFragment listFragment;
 
     private boolean allMatches = false;
+
+    private boolean authenticated = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +62,6 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        // como gerar intents
-        // https://github.com/ogrebgr/android_volley_examples/blob/master/src/com/github/volley_examples/Act_Main.java
-
         if (savedInstanceState == null) {
             retrievePlayerEntity();
 
@@ -73,8 +74,17 @@ public class MainActivity extends ActionBarActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if(authenticated) {
+            showMatchList();
+        }
+    }
+
+    @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         boolean newVisible = !allMatches;
+        // TODO
 //        menu.getItem(R.id.action_new).setVisible(newVisible);
         return super.onPrepareOptionsMenu(menu);
     }
@@ -144,7 +154,9 @@ public class MainActivity extends ActionBarActivity {
                         registerPlayer(playerName);
                         dialog.dismiss();
                     }
-                }).show();
+                })
+                .setCancelable(false)
+                .show();
     }
 
     private void registerPlayer(String playerName) {
@@ -200,6 +212,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void welcomePlayer(PlayerEntity player) {
+        authenticated = true;
         String text = String.format(getString(R.string.welcome_message), player.getName());
         Crouton.showText(this, text, Style.INFO);
     }
@@ -214,7 +227,6 @@ public class MainActivity extends ActionBarActivity {
         invalidateOptionsMenu();
 
         if(allMatches) {
-
             listFragment.fetchAllMatches();
         }
         else {

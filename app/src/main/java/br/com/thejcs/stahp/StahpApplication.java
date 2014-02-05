@@ -50,7 +50,7 @@ public class StahpApplication extends Application {
     }
 
     public void setPlayerId(String playerId) {
-        api.setAuthKey(getPlayerId());
+        api.setAuthKey(playerId);
 
         SharedPreferences settings = getSharedPreferences(PREF_NAME, 0);
         settings.edit()

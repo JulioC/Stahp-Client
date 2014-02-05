@@ -1,8 +1,10 @@
 package br.com.thejcs.stahp.api.entity;
 
+import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
-public class MatchEntity {
+public class MatchEntity implements Serializable {
 
     public enum Status {
         CREATED,
@@ -14,9 +16,15 @@ public class MatchEntity {
 
     private Status status;
 
-    private Set<PlayerEntity> players;
+    private List<EntryEntity> entries;
 
     private PlayerEntity creator;
+
+    private Integer timeLimit;
+
+    private boolean joined;
+
+    private boolean responded;
 
     public String getId() {
         return id;
@@ -26,27 +34,23 @@ public class MatchEntity {
         return status;
     }
 
-    public Set<PlayerEntity> getPlayers() {
-        return players;
+    public List<EntryEntity> getEntries() {
+        return entries;
     }
 
     public PlayerEntity getCreator() {
         return creator;
     }
 
-    // TODO: this shouldn't be here...
-    public boolean isCreator(String playerId) {
-        return (creator.getId().equals(playerId));
+    public Integer getTimeLimit() {
+        return timeLimit;
     }
 
-    // TODO: this shouldn't be here...
-    public boolean isPlayerIn(String playerId) {
-        for(PlayerEntity player: players) {
-            if(player.getId().equals(playerId)) {
-                return true;
-            }
-        }
+    public boolean hasJoined() {
+        return joined;
+    }
 
-        return false;
+    public boolean hasResponded() {
+        return responded;
     }
 }

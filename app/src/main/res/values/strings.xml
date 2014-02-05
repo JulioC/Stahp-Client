@@ -3,16 +3,13 @@
 
     <!-- App identity -->
     <string name="app_name">Stahp!</string>
-    <string name="title_activity_match_details">Stahp! - Partida</string>
-
-    <!-- Testing stuff, TODO: remove -->
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="title_activity_match_details">Stahp!</string>
+    <string name="title_activity_match">Stahp!</string>
 
     <!-- Configuration -->
     <string name="base_url">http://lambdahq.com:8080/stahp/</string>
-    <string name="generic_server_down">O servidor não respondeu</string>
-    <string name="no_internet">Não foi possível conectar com a internet</string>
+    <string name="generic_server_down">O servidor enviou uma resposta vazia</string>
+    <string name="no_internet">Não foi possível conectar com o servidor</string>
     <string name="generic_error">Ocorreu um erro desconhecido :(</string>
 
     <!-- General messages -->
@@ -22,8 +19,8 @@
     <string name="confirm">Pronto!</string>
     <string name="welcome_message">Olá, %1$s!</string>
     <string name="error_message">Erro: %1$s</string>
-
     <string name="action_new">Nova</string>
+
     <string-array name="action_list">
         <item>Minhas Partidas</item>
         <item>Todas Partidas</item>
@@ -34,5 +31,32 @@
     <string name="match_play">Jogar</string>
     <string name="match_players">Participantes</string>
     <string name="created_by">criada por %1$s</string>
+
+    <string name="challenge_ok">OK!</string>
+    <string name="challenge_initial">que começam com %1$s</string>
+    <string name="match_ready_title">Pronto?</string>
+    <string name="match_ready_message">Clicando no botão, você terá %1$d segundos para responder quantas palavras conseguir</string>
+    <string name="match_ready_yes">Comece!</string>
+    <string name="match_ended_title">Tempo esgotado</string>
+    <string name="match_ended_message">Sua pontuação está sendo calculada. Aguarde...</string>
+    <string name="ready_to_start">Pronta para iniciar</string>
+    <string name="waiting_start">Esperando ínicio</string>
+    <string name="open_to_join">Aberta para jogadores</string>
+    <string name="player_turn">Esperando sua jogada</string>
+    <string name="waiting_finish">Esperando finalizar</string>
+    <string name="finished">Finalizada</string>
+    <string name="match_score_message">Sua pontuação final é de %1$d pontos. Parabéns!</string>
+    <string name="match_score_title">Pontuação final</string>
+    <string name="match_score_ok">OK</string>
+    <string name="match_ready_no">Voltar...</string>
+
+    <plurals name="time_left">
+        <item quantity="one">1 segundo restante</item>
+        <item quantity="other">%1$d segundos restantes</item>
+    </plurals>
+
+    <string name="score_number">%1$d pontos</string>
+    <string name="started">Em andamento</string>
+    <string name="waiting_response">Ainda não jogou</string>
 
 </resources>
